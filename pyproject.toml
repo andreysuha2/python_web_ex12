@@ -18,6 +18,8 @@ pydantic = {extras = ["email"], version = "^2.6.0"}
 faker = "^22.6.0"
 python-jose = {extras = ["cryptography"], version = "^3.3.0"}
 libgravatar = "^1.0.4"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-multipart = "^0.0.7"
 
 
 [build-system]
