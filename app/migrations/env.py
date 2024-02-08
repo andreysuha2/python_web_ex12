@@ -7,6 +7,7 @@ from app.db import Base
 from app.settings import DB_CONNECTION_STRING
 
 # models import
+import users.models
 import contacts.models
 
 from alembic import context
