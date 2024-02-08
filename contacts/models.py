@@ -1,7 +1,7 @@
 from app.db import Base
-from sqlalchemy import Integer, String, Date, ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from datetime import date, datetime
+from sqlalchemy import Integer, String, Date
+from sqlalchemy.orm import Mapped, mapped_column
+from datetime import date
 
 class Contact(Base):
     __tablename__ = 'contacts'
