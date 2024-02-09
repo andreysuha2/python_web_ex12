@@ -4,7 +4,7 @@ from contacts.schemas import ContactResponse
 from typing import List
 
 class UserCreationModel(BaseModel):
-    username: str = Field(min_length=5, max_length=16, regex="^\\w+$")
+    username: str = Field(min_length=5, max_length=16, pattern="^\\w+$")
     email: EmailStr
     password: str = Field(min_length=6)
 

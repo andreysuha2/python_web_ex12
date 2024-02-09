@@ -28,7 +28,7 @@ class TokenConfig:
     algorithm: str = "HS256"
     default_expired: int = 120 # in minutes
     access_expired: int = 15 # in minutes
-    refresh_expired: int = 7 # in days
+    refresh_expired: int = 7 * 1440 # in days
     url: str = '/api/auth/login'
 
 TOKEN_CONFIG = TokenConfig()

@@ -16,12 +16,12 @@ class User(Base):
     avatar: Mapped[str] = mapped_column(String, nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now())
     contacts: Mapped[List["Contact"]] = relationship(back_populates="user")
+    tokens: Mapped[List["Token"]] = relationship(back_populates="user")
 
-class RefreshToken(Base):
-    __tablename__ = "refresh_tokens"
+class Token(Base):
+    __tablename__ = "tokens"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     token: Mapped[str] = mapped_column(String, nullable=False)
-    expired_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('users.id'), onupdate='CASCADE')
-    user: Mapped["User"] = relationship()
+    user: Mapped["User"] = relationship(back_populates="tokens")
     

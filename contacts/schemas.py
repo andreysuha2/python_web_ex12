@@ -13,6 +13,8 @@ class ContactModel(BaseModel):
     birthday: Optional[date] = None
     additional_data: Optional[str] = Field(None, max_length=255)
 
-class ContactResponse(ContactModel):    
+class ContactResponse(ContactModel):
+    id: int
+      
     class Config:
         from_attributes = True

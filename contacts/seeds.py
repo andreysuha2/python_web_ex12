@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from app.db import get_db
 from contacts.models import Contact
+from users.models import User
 from datetime import timedelta, datetime
 from typing import List
 import random
@@ -28,8 +29,9 @@ def create_contacts(count: int) -> List[dict]:
     return contacts
 
 def upload_contacts(db: Session, contacts: List[dict]) -> None:
+    users = db.query(User).all()
     for contact_data in contacts:
-        contact = Contact(**contact_data)
+        contact = Contact(**contact_data, user = random.choice(users))
         db.add(contact)
     db.commit()
     
